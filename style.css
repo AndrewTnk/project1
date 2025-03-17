@@ -40,6 +40,14 @@ body {
     box-sizing: border-box;
 }
 
+.brands-info__brands {
+    display: none;
+}
+
+.check-checkbox {
+    display: none;
+}
+
 .burger-toogle {
     display: none;
 }
@@ -83,7 +91,7 @@ main {
 
 .burger-menu {
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     z-index: 2;
 }
 
@@ -343,6 +351,66 @@ main {
     margin-top: 16px;
 }
 
+.brands-info {
+    color: #F8F8F8;
+}
+
+
+.brands-info__title {
+    width: 320px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #F8F8F8, #FFFFFF);
+}
+
+.brands-info__title-title {
+    font-family: 'TT Lakes Regular';
+    color: #7E7E82;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 16px;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider__slide {
+    width: 240px !important;
+    height: 100%;
+    margin: 0 16px;
+}
+
+.slider__button {
+    margin: 0;
+    padding: 0;
+    width: 240px;
+    height: 72px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 6px;
+}
+
+.slider .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: 16px;
+}
+
+.slider .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    background-color: #B5B6BC;
+}
+
 @media (min-width: 768px) and (max-width: 1119px) {
     body {
         margin: 0;
@@ -362,7 +430,7 @@ main {
     }
 
     .container {
-        height: 416px;
+        height: 100%;
     }
 
     .container-info {
@@ -421,13 +489,85 @@ main {
         border-radius: 10px;
     }
 
+    .brands-info {
+        width: 768px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #F8F8F8;
+    }
+
+    .brands-info__title {
+        width: 100%;
+        margin: 0;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .brands-info__title-title {
+        margin: 16px 406px 16px 24px;
+    }
+
+    .brands-info__brands {
+        width: 100%;
+        height: 160px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+
+        transition: all 0.3s ease;
+    }
+
+    .check-checkbox:checked ~ .brands-info__brands {
+        height: 350px;
+    }
+
+    .check-button {
+        margin: 14px 610px 0 24px;
+        color: #1B1C21;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .check-checkbox:checked ~ .check-button::after {
+        content: url(./img/revexpand.svg) ' Скрыть';
+    }
+
+    .check-checkbox:not(:checked) ~ .check-button::after {
+        content: url(./img/expand.svg) ' Показать все';
+    }
+
+    .brands-info__button {
+        margin: 0 0 16px 16px;
+        padding: 0;
+        width: 240px;
+        height: 72px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FFFFFF;
+        border: 1px solid #EAEAEA;
+        border-radius: 6px;
+    }
+
+    .swiper-container {
+        display: none;
+    }
+
 }
 
 @media (min-width: 1120px) {
     body {
         margin: 0;
         width: 1120px;
-        height: 535px;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -477,6 +617,10 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    
+    .container {
+        height: 100%;
     }
 
     
@@ -554,6 +698,82 @@ main {
         height: 307px;
         border-radius: 10px;
         margin-left: 36px;
+    }
+
+    .brands-info__brands {
+        display: block;
+    }
+
+    .brands-info {
+        width: 1120px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #F8F8F8;
+    }
+
+    .brands-info__title {
+        width: 100%;
+        margin: 0 0 24px 0;
+        height: 56px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .brands-info__title-title {
+        margin: 16px 406px 16px 24px;
+    }
+
+    .brands-info__brands {
+        width: 100%;
+        height: 160px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+
+        transition: all 0.3s ease;
+    }
+
+    .check-checkbox:checked ~ .brands-info__brands {
+        height: 250px;
+    }
+
+    .check-button {
+        margin: 14px 957px 0 31px;
+        color: #1B1C21;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .check-checkbox:checked ~ .check-button::after {
+        content: url(./img/revexpand.svg) ' Скрыть';
+    }
+
+    .check-checkbox:not(:checked) ~ .check-button::after {
+        content: url(./img/expand.svg) ' Показать все';
+    }
+
+    .brands-info__button {
+        margin: 0 0 16px 16px;
+        padding: 0;
+        width: 240px;
+        height: 72px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FFFFFF;
+        border: 1px solid #EAEAEA;
+        border-radius: 6px;
+    }
+
+    .swiper-container {
+        display: none;
     }
 
 }
